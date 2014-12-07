@@ -31,8 +31,9 @@ subCon$DateTime <- as.POSIXct(subCon$DateTime)
 
 # Plot 3
 png("plot3.png", width = 480, height = 480)
+legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+       lty=1, col=c("black", "red", "blue"))
 plot(subCon$DateTime, subCon$Sub_metering_1, type="l", ylab= "Energy sub metering", xlab="")
-lines(subCon$DateTime, subCon$Sub_metering_2, type="l", col="red")
 lines(subCon$DateTime, subCon$Sub_metering_3, type="l", col="blue")
-legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, col=c("black", "red", "blue"))
+lines(subCon$DateTime, subCon$Sub_metering_2, type="l", col="red")
 dev.off()

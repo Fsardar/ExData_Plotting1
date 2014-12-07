@@ -33,15 +33,16 @@ subCon$DateTime <- as.POSIXct(subCon$DateTime)
 png("plot4.png", width = 480, height = 480)
 par(mfcol=c(2,2))
 
-plot(subCon$DateTime, subCon$Global_active_power, type="l", ylab= "Global Active Power", xlab="")
 
+plot(subCon$DateTime, subCon$Global_active_power, type="l", ylab= "Global Active Power", xlab="")
 plot(subCon$DateTime, subCon$Sub_metering_1, type="l", ylab= "Energy sub metering", xlab="")
+legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty="n",lty=1, 
+       col=c("black", "red", "blue"))
+
 lines(subCon$DateTime, subCon$Sub_metering_2, type="l", col="red")
 lines(subCon$DateTime, subCon$Sub_metering_3, type="l", col="blue")
-legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, col=c("black", "red", "blue"))
-
 plot(subCon$DateTime,subCon$Voltage,type="l",ylab="Voltage",xlab="datetime")
-
-plot(subCon$DateTime,subCon$Global_reactive_power,type='l',xlab="datetime",ylab="Global_reactive_power")
+plot(subCon$DateTime,subCon$Global_reactive_power,type='l',xlab="datetime",
+     ylab="Global_reactive_power")
 
 dev.off()
